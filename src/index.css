@@ -1,0 +1,255 @@
+/* google fonts */
+@import url("https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pridi:wght@200;300;400;500;600;700&family=Spline+Sans:wght@300..700&display=swap");
+
+/* tailwind css */
+@import "tailwindcss";
+
+@theme {
+  --font-primary: "Cabin", sans-serif;
+  --font-secondary: "Montserrat", sans-serif;
+  --font-pridi: "Pridi", sans-serif;
+  --font-spline: "Spline Sans", sans-serif;
+  --color-textBlack: #0f1b37;
+
+  --color-primary: #EE3131;
+  --color-primary-gradient: linear-gradient(0deg, #111946 0%, #111946 100%),
+    linear-gradient(90deg, #f8f9fa 0%, #939394 100%);
+  --color-secondary-gradient: linear-gradient(
+    49deg,
+    #5433ff 12.93%,
+    #20bdff 84.66%
+  );
+  /* Breakpoints */
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+}
+
+/*
+default breakpoints of tailwind css 
+sm: 640px
+md: 768px
+lg: 1024px
+xl: 1280px
+2xl: 1536px
+*/
+@utility container {
+  margin-inline: auto;
+  padding-inline: 1rem;
+  max-width: 1520px;
+}
+
+/* Global fix for iOS zoom on input/select */
+input,
+select,
+textarea,
+.ant-select-selector {
+  font-size: 16px !important;
+}
+
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #fff;
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 2px;
+}
+
+body {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  overflow-x: hidden;
+  background-color: #fff;
+}
+
+/* Custom Select Container */
+.customSelect {
+  width: 100%;
+}
+
+/* Label Styling */
+.selectLabel {
+  font-size: 16px;
+  color: #969696;
+  margin-bottom: 0.5rem;
+}
+
+@media (min-width: 640px) {
+  .selectLabel {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .selectLabel {
+    font-size: 20px;
+  }
+}
+
+
+/* Selector (input box) Styling */
+
+/* Make Select responsive */
+.ant-select.customSelect {
+  width: 100% !important;
+  max-width: 300px;
+  min-width: 220px; /* optional */
+}
+
+@media (max-width: 480px) {
+  .ant-select.customSelect {
+    max-width: 100%;
+  }
+}
+
+/* Make sure the selector inside also respects width */
+.ant-select.customSelect .ant-select-selector {
+  width: 100% !important;
+}
+
+/* In your global CSS or scoped styles */
+.ant-select-selection-placeholder {
+  font-size: 15px !important; 
+  color: #a0a0a0; 
+}
+
+
+
+
+/* Remove blue focus border (outline) on Ant Design Select */
+.ant-select:focus,
+.ant-select-focused,
+.ant-select-focused .ant-select-selector {
+  box-shadow: none !important;
+  border-color: #d9d9d9 !important; /* or your desired border color */
+  outline: none !important;
+}
+
+
+/* Placeholder and Selected Item inside the box */
+/* Using clamp to make font responsive */
+.customSelect ,
+.customSelect .ant-select-selection-item {
+  font-size: clamp(14px, 2.5vw, 24px) !important;
+}
+
+/* Optional: media queries for additional control */
+@media (max-width: 640px) {
+  .customSelect ,
+  .customSelect .ant-select-selection-item {
+    font-size: 14px !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .customSelect ,
+  .customSelect .ant-select-selection-item {
+    font-size: 16px !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .customSelect ,
+  .customSelect .ant-select-selection-item {
+    font-size: 18px !important;
+  }
+}
+
+/* Dropdown Styling */
+.customSelect .ant-select-dropdown {
+  border-radius: 8px !important;
+}
+
+.customSelect .ant-select-arrow {
+  padding-right: 30px;
+  width: 12px;
+  height: 6px;
+  color: #000;
+  top: 50% !important;
+  position: absolute !important;
+}
+
+.customSelect .ant-select-dropdown .ant-select-item-option {
+  font-size: clamp(14px, 2.5vw, 24px) !important;
+  border-right: 1px solid #d9d9d9;
+}
+
+.ant-rate-star {
+  font-size: 118px; 
+}
+
+.ant-rate-star-full .anticon svg {
+  color: #FFC97D; 
+}
+
+.ant-rate-star:hover .anticon svg,
+.ant-rate-star-focused .anticon svg {
+  color: #FFC97D;
+}
+
+
+/* Tablet (max-width: 991px) */
+@media (max-width: 991px) {
+  .ant-rate-star {
+    font-size: 80px;
+  }
+}
+
+/* Mobile (max-width: 575px) */
+@media (max-width: 575px) {
+  .ant-rate-star {
+    font-size: 50px;
+  }
+}
+
+
+/* outer container */
+.custom-country-input {
+  width: 100%;
+}
+
+/* inner input area */
+.custom-country-input .ant-select-selector {
+  padding-top: 0.5rem;     /* = py-2 */
+  padding-bottom: 0.5rem;
+  padding-left: 1rem;      /* = px-4 */
+  padding-right: 1rem;
+  border: 1px solid #AECBDF;
+  font-size: 1rem;         /* text-base */
+  line-height: 1.75rem;
+  border-radius: 0.5rem;
+  outline: none;
+}
+
+/* responsive */
+@media (min-width: 640px) {
+  .custom-country-input .ant-select-selector {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    font-size: 1.125rem;
+    line-height: 2.25rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .custom-country-input .ant-select-selector {
+    font-size: 1.25rem;
+  }
+}
+
+/* Placeholder color handled by AntD, no ::placeholder needed */
+
+/* Error border */
+.custom-country-input.error .ant-select-selector {
+  border-color: #ef4444;
+}
